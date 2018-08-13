@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>HTML DOM Assignment-2</title>
+        <script>
+            // added event listener to load page
+            window.addEventListener("load",loadPage);
+            function loadPage() {
+                // Added event listener to button that executes function
+                document.getElementById("btn").addEventListener("click",addRow);
+                }
+            
+            var count = 1;
+            function addRow() {                 // function created with given parameters
+                var table = document.getElementById("dynamic-table");
+                var rows = table.insertRow(-1);
+
+                // loop to add consecutive row and cell 
+                for (var i=1; i<=2; i++) {
+                    var cells = rows.insertCell(-1);   
+                    cells.innerHTML = `Cell ${count} `;
+                    count++;
+                    }
+                }    
+        </script>
+    </head>
+    <body>
+        <table id="dynamic-table" border="1">
+        </table>
+        <br>
+        <input id="btn" type="button" value="Add Row">    
+    </body>
+</html>
